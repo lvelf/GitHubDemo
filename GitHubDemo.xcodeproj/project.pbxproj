@@ -14,6 +14,10 @@
 		0C71D0972937C3CF00A8B548 /* GitHubDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C71D0952937C3CF00A8B548 /* GitHubDemo.xcdatamodeld */; };
 		0C71D0992937C3CF00A8B548 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C71D0982937C3CF00A8B548 /* Assets.xcassets */; };
 		0C71D09C2937C3CF00A8B548 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C71D09A2937C3CF00A8B548 /* LaunchScreen.storyboard */; };
+		0C71D0A62937C46200A8B548 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C71D0A52937C46200A8B548 /* MessageViewController.swift */; };
+		0C71D0A82937C47600A8B548 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C71D0A72937C47600A8B548 /* ExploreViewController.swift */; };
+		0C71D0AA2937C48F00A8B548 /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C71D0A92937C48F00A8B548 /* PersonalViewController.swift */; };
+		0C71D0AC2937FB8D00A8B548 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C71D0AB2937FB8D00A8B548 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		0C71D0982937C3CF00A8B548 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C71D09B2937C3CF00A8B548 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C71D09D2937C3CF00A8B548 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C71D0A52937C46200A8B548 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		0C71D0A72937C47600A8B548 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		0C71D0A92937C48F00A8B548 /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
+		0C71D0AB2937FB8D00A8B548 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,10 @@
 				0C71D08C2937C3CF00A8B548 /* AppDelegate.swift */,
 				0C71D08E2937C3CF00A8B548 /* SceneDelegate.swift */,
 				0C71D0902937C3CF00A8B548 /* ViewController.swift */,
+				0C71D0AB2937FB8D00A8B548 /* HomeViewController.swift */,
+				0C71D0A52937C46200A8B548 /* MessageViewController.swift */,
+				0C71D0A72937C47600A8B548 /* ExploreViewController.swift */,
+				0C71D0A92937C48F00A8B548 /* PersonalViewController.swift */,
 				0C71D0922937C3CF00A8B548 /* Main.storyboard */,
 				0C71D0982937C3CF00A8B548 /* Assets.xcassets */,
 				0C71D09A2937C3CF00A8B548 /* LaunchScreen.storyboard */,
@@ -142,8 +154,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C71D0912937C3CF00A8B548 /* ViewController.swift in Sources */,
+				0C71D0AA2937C48F00A8B548 /* PersonalViewController.swift in Sources */,
 				0C71D08D2937C3CF00A8B548 /* AppDelegate.swift in Sources */,
 				0C71D08F2937C3CF00A8B548 /* SceneDelegate.swift in Sources */,
+				0C71D0AC2937FB8D00A8B548 /* HomeViewController.swift in Sources */,
+				0C71D0A62937C46200A8B548 /* MessageViewController.swift in Sources */,
+				0C71D0A82937C47600A8B548 /* ExploreViewController.swift in Sources */,
 				0C71D0972937C3CF00A8B548 /* GitHubDemo.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
