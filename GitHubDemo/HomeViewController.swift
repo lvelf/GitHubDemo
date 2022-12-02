@@ -122,12 +122,12 @@ extension HomeViewController {
                 button.backgroundColor = .white
                 button.setTitle("\(indexPath.section)", for: .normal)
                 button.setTitleColor(.red, for: .normal)
-                view.addSubview(button)
-                print(rect)
+                //view.addSubview(button)
+                //print(rect)
             }
             if indexPath.section == 1 {
                  rect = headerView.convert(CGRect(x: headerView.frame.minX,y: 45.0,width: 10.0,height: 10.0), to: window)
-                print(rect)
+                //print(rect)
 
             }
             
