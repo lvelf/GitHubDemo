@@ -21,6 +21,8 @@ struct HeaderItem: Hashable {
 
 class HomeViewController: UIViewController,UICollectionViewDelegate {
     
+    let window = UIApplication.shared.windows.filter{ $0.isKeyWindow }.first
+    
     //datas
     let modelObjects = [HeaderItem(title: "Work", symbols:
                                     [SFSymbolItem(name: "Meeting", imageName: "target"),SFSymbolItem(name: "pc", imageName: "pc")]),
@@ -109,6 +111,28 @@ extension HomeViewController {
             configuration.textProperties.color = .black
             configuration.directionalLayoutMargins = .init(top: 10.0, leading: 5.0, bottom: 10.0, trailing: 0.0)
             
+            var rect: CGRect!
+            //config button
+            if indexPath.section == 0 {
+                 rect = headerView.convert(CGRect(x: headerView.frame.minX,y: 25.0,width: 10.0,height: 10.0), to: window)
+                
+                let button = UIButton(frame: CGRect(x: 330, y: rect.minY, width: rect.height, height: rect.height))
+                let image = UIImage(systemName: "ellipsis")
+                //button.setImage(image, for: .normal)
+                button.backgroundColor = .white
+                button.setTitle("\(indexPath.section)", for: .normal)
+                button.setTitleColor(.red, for: .normal)
+                view.addSubview(button)
+                print(rect)
+            }
+            if indexPath.section == 1 {
+                 rect = headerView.convert(CGRect(x: headerView.frame.minX,y: 45.0,width: 10.0,height: 10.0), to: window)
+                print(rect)
+
+            }
+            
+            
+            
             //apply configuration
             headerView.contentConfiguration = configuration
         }
@@ -161,7 +185,7 @@ extension HomeViewController {
 
 extension HomeViewController {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
         print(modelObjects[indexPath.section].symbols[indexPath.row].name)

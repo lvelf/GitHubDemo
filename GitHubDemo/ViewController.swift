@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ViewController: UITabBarController {
     
@@ -34,6 +35,7 @@ class ViewController: UITabBarController {
         let personal = PersonalViewController()
         return personal
     }()
+    var personalNav: UINavigationController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +46,13 @@ class ViewController: UITabBarController {
         configHomeView()
         messageController.title = "Message"
         exploreController.title = "Explore"
-        personalController.title = "Personal data"
+        configPersonalView()
+        //personalController.title = "Personal data"
+        
         
         //config tabbar
         
-        self.setViewControllers([homeNav, messageController, exploreController, personalController], animated: false)
+        self.setViewControllers([homeNav, messageController, exploreController, personalNav], animated: false)
         
         guard let items = self.tabBar.items else {
             return
@@ -74,8 +78,43 @@ class ViewController: UITabBarController {
         //searchbar
         let searchController = UISearchController(searchResultsController: nil)
         homeController.navigationItem.searchController = searchController
-       
+        let plusItem = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(didTapAddButton))
+        homeController.navigationItem.rightBarButtonItem = plusItem
     }
     
+    private func configPersonalView() {
+        personalNav = UINavigationController(rootViewController: personalController)
+        personalNav.navigationBar.backgroundColor = .systemGray6
+        //personalController.navigationController?.navigationBar.backgroundColor = .white
+        personalNav.title = "Personal data"
+        
+        
+        
+        let actionItem = UIBarButtonItem(systemItem: .action, primaryAction: nil, menu: nil)
+        personalController.navigationItem.rightBarButtonItems = [actionItem, editButtonItem]
+        
+    }
+    
+}
+
+extension ViewController {
+    
+    //HomeViewController
+    
+    @objc func didTapAddButton() {
+        configWeb(url: "https://github.com/issues")
+    }
+}
+
+extension ViewController {
+    func configWeb(url: String) {
+        guard let webURL = URL(string: url) else {
+            return
+        }
+        
+        let safariVC = SFSafariViewController(url: webURL)
+        
+        present(safariVC, animated: true, completion:  nil)
+    }
 }
 
