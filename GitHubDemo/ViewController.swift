@@ -8,7 +8,21 @@
 import UIKit
 import SafariServices
 
+struct node {
+    let title:String
+    let imageName: String
+    let choosed: Bool = false
+}
+
 class ViewController: UITabBarController {
+    
+    static let shared = ViewController()
+    
+    let nodes: [node] = [node(title: "Meeting",imageName: "target"),node(title: "M",imageName: "pencil"),node(title: "S",imageName: "pencil.circle"),node(title: "W",imageName:  "eraser"),node(title: "R", imageName: "eraser.fill")]
+    
+    public var models: [ChooseData]!
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     //homeViewController and Navigation
     var homeController: HomeViewController = {
@@ -42,6 +56,8 @@ class ViewController: UITabBarController {
         // Do any additional setup after loading the view.
         
         
+        //configOriginalData()
+        getAllItems()
         //config views
         configHomeView()
         messageController.title = "Message"
@@ -116,5 +132,78 @@ extension ViewController {
         
         present(safariVC, animated: true, completion:  nil)
     }
+    
+    @objc public func TapEditButton() {
+        print("????")
+            let rootVC = EditViewController()
+            
+            let navVC = UINavigationController(rootViewController: rootVC)
+            
+            navVC.modalPresentationStyle = .fullScreen
+            self.present(navVC, animated:  true)
+            //self.present(rootVC, animated: false)
+    }
 }
+
+extension ViewController {
+    
+    func configOriginalData() {
+        let opened = Lauched(context: context)
+        opened.lauched = true
+        var all_datas: [Lauched]
+        
+        do {
+            all_datas = try context.fetch(Lauched.fetchRequest())
+            if all_datas.count > 1 {
+                return
+            }
+        }
+        catch {
+            //error
+        }
+       
+        
+        for item in nodes {
+            createItem(name: item.title, imageName: item.imageName)
+        }
+    }
+    
+    func createItem(name: String,imageName: String,choosed: Bool = false) {
+        let newItem = ChooseData(context: context)
+        newItem.title = name
+        newItem.imageName = imageName
+        newItem.choosed = choosed
+        do {
+            try context.save()
+            getAllItems()
+            homeController.configModels()
+        }
+        catch {
+            
+        }
+    }
+    
+    func getAllItems() {
+        do{
+            models = try context.fetch(ChooseData.fetchRequest())
+            
+        }
+        catch {
+            //error
+        }
+    }
+    
+    func deleteItem(item: ChooseData) {
+        context.delete(item)
+        do {
+            try context.save()
+            getAllItems()
+            homeController.configModels()
+        }
+        catch {
+            
+        }
+    }
+}
+
 

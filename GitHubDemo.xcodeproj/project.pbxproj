@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C3E83B6293AC729006C1E21 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3E83B5293AC729006C1E21 /* EditViewController.swift */; };
+		0C3E83BE293AD9E0006C1E21 /* ChooseData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3E83BC293AD9E0006C1E21 /* ChooseData+CoreDataClass.swift */; };
+		0C3E83BF293AD9E0006C1E21 /* ChooseData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3E83BD293AD9E0006C1E21 /* ChooseData+CoreDataProperties.swift */; };
+		0C3E83CA293ADDD2006C1E21 /* Lauched+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3E83C8293ADDD2006C1E21 /* Lauched+CoreDataClass.swift */; };
+		0C3E83CB293ADDD2006C1E21 /* Lauched+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3E83C9293ADDD2006C1E21 /* Lauched+CoreDataProperties.swift */; };
 		0C71D08D2937C3CF00A8B548 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C71D08C2937C3CF00A8B548 /* AppDelegate.swift */; };
 		0C71D08F2937C3CF00A8B548 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C71D08E2937C3CF00A8B548 /* SceneDelegate.swift */; };
 		0C71D0912937C3CF00A8B548 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C71D0902937C3CF00A8B548 /* ViewController.swift */; };
@@ -21,6 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C3E83B5293AC729006C1E21 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		0C3E83BC293AD9E0006C1E21 /* ChooseData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChooseData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0C3E83BD293AD9E0006C1E21 /* ChooseData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChooseData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0C3E83C8293ADDD2006C1E21 /* Lauched+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lauched+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0C3E83C9293ADDD2006C1E21 /* Lauched+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lauched+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0C71D0892937C3CF00A8B548 /* GitHubDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C71D08C2937C3CF00A8B548 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C71D08E2937C3CF00A8B548 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,9 +57,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C3E83BB293ACD04006C1E21 /* ChooseData */ = {
+			isa = PBXGroup;
+			children = (
+				0C3E83C9293ADDD2006C1E21 /* Lauched+CoreDataProperties.swift */,
+				0C3E83C8293ADDD2006C1E21 /* Lauched+CoreDataClass.swift */,
+				0C3E83BD293AD9E0006C1E21 /* ChooseData+CoreDataProperties.swift */,
+				0C3E83BC293AD9E0006C1E21 /* ChooseData+CoreDataClass.swift */,
+			);
+			path = ChooseData;
+			sourceTree = "<group>";
+		};
 		0C71D0802937C3CF00A8B548 = {
 			isa = PBXGroup;
 			children = (
+				0C3E83BB293ACD04006C1E21 /* ChooseData */,
 				0C71D08B2937C3CF00A8B548 /* GitHubDemo */,
 				0C71D08A2937C3CF00A8B548 /* Products */,
 			);
@@ -69,6 +91,7 @@
 				0C71D08C2937C3CF00A8B548 /* AppDelegate.swift */,
 				0C71D08E2937C3CF00A8B548 /* SceneDelegate.swift */,
 				0C71D0902937C3CF00A8B548 /* ViewController.swift */,
+				0C3E83B5293AC729006C1E21 /* EditViewController.swift */,
 				0C71D0AB2937FB8D00A8B548 /* HomeViewController.swift */,
 				0C71D0A52937C46200A8B548 /* MessageViewController.swift */,
 				0C71D0A72937C47600A8B548 /* ExploreViewController.swift */,
@@ -160,7 +183,12 @@
 				0C71D0AC2937FB8D00A8B548 /* HomeViewController.swift in Sources */,
 				0C71D0A62937C46200A8B548 /* MessageViewController.swift in Sources */,
 				0C71D0A82937C47600A8B548 /* ExploreViewController.swift in Sources */,
+				0C3E83BE293AD9E0006C1E21 /* ChooseData+CoreDataClass.swift in Sources */,
+				0C3E83CA293ADDD2006C1E21 /* Lauched+CoreDataClass.swift in Sources */,
+				0C3E83BF293AD9E0006C1E21 /* ChooseData+CoreDataProperties.swift in Sources */,
 				0C71D0972937C3CF00A8B548 /* GitHubDemo.xcdatamodeld in Sources */,
+				0C3E83CB293ADDD2006C1E21 /* Lauched+CoreDataProperties.swift in Sources */,
+				0C3E83B6293AC729006C1E21 /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

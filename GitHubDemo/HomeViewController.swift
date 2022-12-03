@@ -15,7 +15,7 @@ struct SFSymbolItem: Hashable {
 
 struct HeaderItem: Hashable {
     let title: String
-    let symbols: [SFSymbolItem]
+    var symbols: [SFSymbolItem]
 }
 
 
@@ -24,16 +24,27 @@ class HomeViewController: UIViewController,UICollectionViewDelegate {
     let window = UIApplication.shared.windows.filter{ $0.isKeyWindow }.first
     
     //datas
-    let modelObjects = [HeaderItem(title: "Work", symbols:
-                                    [SFSymbolItem(name: "Meeting", imageName: "target"),SFSymbolItem(name: "pc", imageName: "pc")]),
+    var modelObjects = [HeaderItem(title: "Work", symbols:
+                                    []),
                        HeaderItem(title: "Star", symbols: [SFSymbolItem(name: "sun", imageName: "sun.min"),
                                                           SFSymbolItem(name: "sunset", imageName: "sunset.fill")]),
-                       HeaderItem(title: "FastWay", symbols: []),
-                       HeaderItem(title: "Latest", symbols: [])
+                       HeaderItem(title: "FastWay", symbols: [SFSymbolItem(name: "sad", imageName: "pencil"),SFSymbolItem(name: "pc", imageName: "pc")]),
+                       HeaderItem(title: "Latest", symbols: [SFSymbolItem(name: "happy", imageName: "figure.walk"),SFSymbolItem(name: "pc", imageName: "figure.wave")])
     ]
+    
+    
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<HeaderItem, SFSymbolItem>!
+    var ellipsisButton: UIButton = {
+        let button = UIButton()
+        let image = UIImage(systemName: "ellipsis")
+        button.setImage(image, for: .normal)
+        button.backgroundColor = .systemGray6
+       
+            
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +53,8 @@ class HomeViewController: UIViewController,UICollectionViewDelegate {
         configCell()
         configHeader()
         configSnapshot()
+        configEditButton()
+        
     }
     
     private func configView() {
@@ -114,15 +127,9 @@ extension HomeViewController {
             var rect: CGRect!
             //config button
             if indexPath.section == 0 {
-                 rect = headerView.convert(CGRect(x: headerView.frame.minX,y: 25.0,width: 10.0,height: 10.0), to: window)
+                 rect = headerView.convert(CGRect(x: headerView.frame.minX,y: 25.0,width: 10,height: 20), to: window)
                 
-                let button = UIButton(frame: CGRect(x: 330, y: rect.minY, width: rect.height, height: rect.height))
-                let image = UIImage(systemName: "ellipsis")
-                //button.setImage(image, for: .normal)
-                button.backgroundColor = .white
-                button.setTitle("\(indexPath.section)", for: .normal)
-                button.setTitleColor(.red, for: .normal)
-                //view.addSubview(button)
+                ellipsisButton.frame = CGRect(x: 350, y: rect.minY - 3, width: rect.height, height: rect.height)
                 //print(rect)
             }
             if indexPath.section == 1 {
@@ -179,6 +186,14 @@ extension HomeViewController {
         
         dataSource.apply(dataSourceSnapshot, animatingDifferences:  false)
     }
+    
+    private func configEditButton() {
+        ellipsisButton.addTarget(ViewController.shared, action: #selector(ViewController.shared.TapEditButton), for: .touchUpInside)
+        view.addSubview(ellipsisButton)
+    }
+    
+    
+    
 }
 
 //point
@@ -210,6 +225,25 @@ extension HomeViewController {
         present(safariVC, animated: true, completion:  nil)
     }
     
+    
 }
+
+extension HomeViewController {
+    
+    public func configModels() {
+        
+        print("hhhh")
+        self.modelObjects[0].symbols = []
+        for item in ViewController.shared.models {
+            self.modelObjects[0].symbols.append(SFSymbolItem(name: item.title!, imageName: item.imageName!))
+        }
+        
+        print(self.modelObjects[0].symbols.count)
+        
+        configSnapshot()
+    }
+}
+
+
 
 
